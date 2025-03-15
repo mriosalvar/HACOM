@@ -1,0 +1,30 @@
+server:
+  port: ${app.apiPort}
+
+spring:
+  data:
+    mongodb:
+      uri: ${app.mongodbUri}
+      database: ${app.mongodbDatabase}
+  log:
+    level:
+      root: INFO
+      com.prueba: DEBUG
+      com.prueba.controller: trace
+      com.prueba.service: trace
+      org.springframework.web: warn
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health,info
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+app:
+  mongodbUri : "mongodb+srv://mrproductionsa:xxxxx@pruebatecnica.fp3bl.mongodb.net/?retryWrites=true&w=majority"
+  mongodbDatabase: "pruebatecnicadb"
+  apiPort: 9898
